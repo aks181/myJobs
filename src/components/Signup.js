@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import './_signup.scss';
 import TopNav from './home/TopNav';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const validate = values => {
     const errors = {};

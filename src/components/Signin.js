@@ -1,6 +1,6 @@
-import { Formik } from 'formik'
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Formik } from 'formik';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import TopNav from './home/TopNav';
 import './_signup.scss';

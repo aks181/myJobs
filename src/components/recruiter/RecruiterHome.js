@@ -41,9 +41,9 @@ export default function RecruiterHome() {
         (fetchData('https://jobs-api.squareboat.info/api/v1/recruiters/jobs', dataFromLocalStorage.token)) : window.location = '/';
     }, []);
 
-    function openModal() {
-        setIsOpen(true);
-    }
+    // function openModal() {
+    //     setIsOpen(true);
+    // }
 
     function closeModal() {
         setIsOpen(false);
