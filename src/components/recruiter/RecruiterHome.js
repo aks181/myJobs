@@ -136,7 +136,7 @@ export default function RecruiterHome() {
                             })}
                             </div>
                         </Modal>
-git remote add origin https://github.com/aks181/myJobs.git
+
                     </div>
                 )
                 
