@@ -1,0 +1,47 @@
+@import '../../constants.scss';
+
+.heading{
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+
+    &__left{
+        // float: left;
+        color: white;
+        font-size: 3rem;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        margin-bottom: 10rem;
+
+        .jobs {
+            color: $primary-color-blue;
+        }
+
+        .started {
+            
+            // margin-top: 5rem;
+        }
+    }
+
+    &__right {
+        // float: right;
+        position: absolute;
+        top: 4rem;
+        left: 50rem;
+
+        img {
+            width: 350px;
+            height: 250px;
+            box-shadow: 0px 30px 36px #557DA526;
+            border-radius: 20px;
+            opacity: 1;
+        }
+    }
+
+}

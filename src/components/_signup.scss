@@ -1,0 +1,59 @@
+@import '../../constants.scss';
+
+.form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 35vw;
+    height: auto;
+    padding: 1.8rem;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    border-radius: 10px;
+    box-shadow: 0 30px 175px rgba(0, 0, 0, 0.05);
+    
+    h2 {
+        font-size: 1.5rem;
+        color: $primary-color-dark;
+    }
+
+    button {
+        width: 125px;
+        height: 35px;
+        margin: 1rem 1rem 1rem 0;
+        background: $primary-color-blue 0% 0% no-repeat padding-box;
+        border: 1px solid $primary-color-blue;
+        border-radius: 5px;
+        opacity: 1;
+        color: white;
+    }
+    input,textarea {
+        background: #E8E8E833 0% 0% no-repeat padding-box;
+        border: 1px solid #43AFFF;
+        border-radius: 5px;
+        opacity: 1;
+        padding: .5rem 1rem;
+        margin-bottom: .5rem;
+    }
+
+    textarea {
+        height: 105px;
+        // width: 50px;
+    }
+
+    label {
+        margin-bottom: .2rem;
+    }
+
+    .errormsg {
+        text-align: right;
+        opacity: .7;
+        color: red;
+        font-size: .8rem;
+        margin: -.5rem 0;
+    }
+}

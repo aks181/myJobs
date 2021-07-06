@@ -1,0 +1,9 @@
+@import '../../../constants.scss';
+
+h2 {
+    color: white;
+    margin: 1rem;
+    .jobs {
+        color: $primary-color-blue;
+    }
+}

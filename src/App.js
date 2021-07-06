@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './_App.scss';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Landing from './components/home/Landing';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
+import PostJob from './components/recruiter/PostJob';
+import RecruiterHome from './components/recruiter/RecruiterHome';
+import CandidateHome from './components/candidate/CandidateHome';
+// import AppliedJobs from './components/candidate/AppliedJobs';
+
+const App = () => {
+  return(
+    <div>
+      <BrowserRouter>
+          <Route path="/" exact component={Landing} />
+          <Route path="/signin" exact component={Signin} />
+          <Route path="/signin/forgot" exact component={ForgotPassword} />
+          <Route path="/signin/forgot/reset" exact component={ResetPassword} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/postjob" exact component={PostJob} />
+          <Route path="/recruiterHome" exact component={RecruiterHome} />
+          <Route path="/candidateHome" exact component={CandidateHome} />
+          {/* <Route path="/appliedJobs" exact component={AppliedJobs} /> */}
+      </BrowserRouter>  
     </div>
   );
 }

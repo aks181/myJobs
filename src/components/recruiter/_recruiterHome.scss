@@ -1,0 +1,48 @@
+@import '../../../constants.scss';
+
+.zeroJobCards{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50vh;
+}
+
+h3 {
+    font-size: 2rem;
+    color: $secondary-color-dark;
+    text-align: left;
+    // margin-bottom: 1.5rem;
+    margin: 1rem 2rem 2rem;
+}
+
+.modalBody {
+    background-color: #557DA526;
+    padding: 1rem;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    border-radius: 5px;
+
+    .modal-card {
+        background-color: white;
+        padding: 1rem;
+
+        p{
+            color: $secondary-color-dark;
+
+            strong {
+                margin-top: .6rem;
+                margin-bottom: -.8rem;
+            }
+        }
+
+        .name {
+            font-size: 1.3rem;
+            color: black;
+        }
+
+    }
+}
