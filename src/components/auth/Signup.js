@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import './_signup.scss';
 import TopNav from '../home/TopNav';
+import { baseURL, postData } from '../../config/Api';
 // import { Link } from 'react-router-dom';
 
 const validate = values => {
@@ -52,7 +53,7 @@ export default function Signup() {
             // alert(JSON.stringify(values, null, 2));
             // console.log(values.fullName)
                         
-            postData('https://jobs-api.squareboat.info/api/v1/auth/register', {
+            postData( baseURL + '/auth/register', {
                 email: values.email,
                 userRole: role, 
                 password: values.password,
@@ -82,18 +83,6 @@ export default function Signup() {
 
     })
     
-    async function postData(url = '', data = {}) {
-        const response = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', 
-            mode: 'cors', 
-            body: JSON.stringify(data)
-        });
-        return response.json(); 
-    }
-      
 
     return (
         <>

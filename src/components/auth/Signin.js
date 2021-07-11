@@ -2,22 +2,12 @@ import { Formik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { baseURL, postData } from '../../config/Api';
 import TopNav from '../home/TopNav';
 import './_signup.scss';
 
 export default function Signin() {
    
-    async function postData(url = '', data = {}) {
-        const response = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', 
-            mode: 'cors', 
-            body: JSON.stringify(data)
-        });
-        return response.json(); 
-    }    
     
     return (
 
@@ -35,7 +25,7 @@ export default function Signin() {
             onSubmit = {values => {
                 // alert(JSON.stringify(values, null, 2));
                 // console.log(values.email);
-                postData('https://jobs-api.squareboat.info/api/v1/auth/login', {
+                postData( baseURL + '/auth/login', {
                     email: values.email,
                     password: values.password
                 }).then(data => {

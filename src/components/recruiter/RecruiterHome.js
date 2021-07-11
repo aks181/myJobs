@@ -6,6 +6,7 @@ import Modal from 'react-modal'
 import JobList from './JobList';
 import { Link } from 'react-router-dom';
 import PostJob from './PostJob'
+import { baseURL, fetchData } from '../../config/Api'
 
 const customStyles = {
     overlay: {
@@ -38,7 +39,10 @@ export default function RecruiterHome() {
     useEffect(() => {
         const dataFromLocalStorage = JSON.parse(localStorage.getItem('user'));
         (dataFromLocalStorage && dataFromLocalStorage.userRole===0) ?
-        (fetchData('https://jobs-api.squareboat.info/api/v1/recruiters/jobs', dataFromLocalStorage.token)) : window.location = '/';
+        (fetchData( baseURL + '/recruiters/jobs', dataFromLocalStorage.token)
+        .then(data => {  
+            setJobsPosted(data.data.data);
+        })) : window.location = '/';
     }, []);
 
     // function openModal() {
@@ -50,7 +54,7 @@ export default function RecruiterHome() {
     }
 
     const viewApplicants = (id) => {
-        fetchApplicants('https://jobs-api.squareboat.info/api/v1/recruiters/jobs/' + id + '/candidates')
+        fetchApplicants( baseURL + '/recruiters/jobs/' + id + '/candidates')
         .then(data => {
             //   console.log(data);
               if(data.data){
@@ -60,33 +64,19 @@ export default function RecruiterHome() {
         }).catch((err)=>{
             console.log(err)
         });
-    }
+    }   
     
-    function fetchData(url = '', token) {
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-        myHeaders.append('Authorization', token);
-        
-       fetch(url, {
-        method: 'GET',
-        headers: myHeaders,
-        })
-        .then((response) => response.json())
-        .then(data => {
-            //  console.log(data);
-            setJobsPosted(data.data.data);
-        })
-        .catch(e => {
-            console.log(e);
-        });
-    }
 
     async function fetchApplicants(url = '') {
         const myHeaders = new Headers();
         const dataFromLocalStorage = JSON.parse(localStorage.getItem('user'));
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Authorization', dataFromLocalStorage.token);
-        const response =  await fetch(url, { method: 'GET', headers: myHeaders });
+        const response =  await fetch(url, 
+            { 
+                method: 'GET', 
+                headers: myHeaders
+            });
         return response.json();
     }
 
@@ -114,14 +104,15 @@ export default function RecruiterHome() {
                         <Modal
                             isOpen={isOpen}
                             onRequestClose={closeModal}
-                            style={customStyles}       
+                            style={customStyles} 
+                            ariaHideApp={false}      
                         >
                             <h3>Applicants for this job</h3>
 
                             <div className="modalBody">
                             {applicants.map((data) => {
                                 return (
-                                    <div className="modal-card">
+                                    <div className="modal-card" key={data.id}>
                                         <div className="upper">
                                             <p className="name">{data.name}</p>
                                             <p>{data.email}</p>

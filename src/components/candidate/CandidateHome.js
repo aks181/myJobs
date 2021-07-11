@@ -7,6 +7,7 @@ import MainButton from '../home/MainButton'
 import JobCardCandidate from './JobCardCandidate';
 import '../recruiter/_recruiterHome.scss';
 import '../candidate/_candidateHome.scss';
+import { baseURL, fetchData } from '../../config/Api';
 
 
 export default function CandidateHome() {
@@ -17,38 +18,31 @@ export default function CandidateHome() {
     useEffect(() => {
         const dataFromLocalStorage = JSON.parse(localStorage.getItem('user'));
         if(dataFromLocalStorage && dataFromLocalStorage.userRole === 1){
-          fetchData('https://jobs-api.squareboat.info/api/v1/candidates/jobs', dataFromLocalStorage.token);
+          fetchData( baseURL + '/candidates/jobs', dataFromLocalStorage.token)
+          .then((data) => {
+            setAllJobs(data.data);
+            setJobsApplied(value => !value);
+            })
         }else{
           window.location = '/';
         }
     }, []);
-
-    function fetchData(url = '', token) {
-        const myHeaders = new Headers();
-        
-        myHeaders.append('Content-Type', 'application/json');
-        myHeaders.append('Authorization', token);
-        
-       fetch(url, {
-        method: 'GET',
-        headers: myHeaders,
-       })
-        .then((response) => response.json())
-        .then((data) => {
-            setAllJobs(data.data);
-            setJobsApplied(value => !value);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
+    
 
     const getAppliedJobs = () => {
         const dataFromLocalStorage = JSON.parse(localStorage.getItem('user'));
         if(jobsApplied === false){
-            fetchData('https://jobs-api.squareboat.info/api/v1/candidates/jobs/applied', dataFromLocalStorage.token);
+            fetchData( baseURL + '/candidates/jobs/applied', dataFromLocalStorage.token)
+            .then((data) => {
+                setAllJobs(data.data);
+                setJobsApplied(value => !value);
+            })
         }else{
-            fetchData('https://jobs-api.squareboat.info/api/v1/candidates/jobs', dataFromLocalStorage.token);
+            fetchData( baseURL + '/candidates/jobs', dataFromLocalStorage.token)
+            .then((data) => {
+                setAllJobs(data.data);
+                setJobsApplied(value => !value);
+            })
         }
     }
 

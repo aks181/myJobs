@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import React from 'react'
+import { baseURL } from '../../config/Api';
 import '../auth/_signup.scss'
 
 
@@ -25,7 +26,7 @@ export default function PostJob() {
         validate,
         onSubmit: values => {
             // console.log(values)
-            postData('https://jobs-api.squareboat.info/api/v1/jobs/', {
+            postData( baseURL + '/jobs/', {
                 title: values.jobTitle,
                 description: values.description,
                 location : values.location

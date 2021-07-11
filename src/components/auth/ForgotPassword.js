@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import TopNav from '../home/TopNav';
 import MainButton from '../home/MainButton';
 import './_signup.scss';
+import { baseURL, postData } from '../../config/Api';
 
 const validate = values => {
     const errors = {};
@@ -26,7 +27,7 @@ export default function ForgotPassword() {
         validate,
         onSubmit: values => {
             // alert(JSON.stringify(values, null, 2));
-            postData('https://jobs-api.squareboat.info/api/v1/auth/resetpassword?email='+values.email)
+            postData( baseURL + '/auth/resetpassword?email='+values.email)
                 .then(data => {
                    window.location = '/login'
                 }).catch((error)=>{
@@ -36,10 +37,6 @@ export default function ForgotPassword() {
 
     })
 
-    async function postData(url = '') {
-        const response = await fetch(url);
-        return response.json(); 
-    }
 
     return (
         <div>

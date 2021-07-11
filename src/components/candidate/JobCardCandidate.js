@@ -1,11 +1,12 @@
 import React from 'react';
+import { baseURL } from '../../config/Api';
 import '../recruiter/_jobcard.scss';
 
 
 export default function JobCardCandidate({ data, jobsApplied }) {
     
     const applyToJob = ( id )=>{
-        postData('https://jobs-api.squareboat.info/api/v1/candidates/jobs', {
+        postData( baseURL + '/candidates/jobs', {
             jobId : id
         }).then(data => {
             window.alert('Applied sucessfully!');
