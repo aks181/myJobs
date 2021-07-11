@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './_recruiterHome.scss'
 import TopNav from '../home/TopNav'
-import MainButton from '../MainButton'
+import MainButton from '../home/MainButton'
 import Modal from 'react-modal'
 import JobList from './JobList';
 import { Link } from 'react-router-dom';

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import TopNav from '../home/TopNav'
-import MainButton from '../MainButton'
+import MainButton from '../home/MainButton'
 // import JobCard from '../recruiter/JobCard';
 // import JobList from '../recruiter/JobList';
 import JobCardCandidate from './JobCardCandidate';
 import '../recruiter/_recruiterHome.scss';
 import '../candidate/_candidateHome.scss';
+
 
 export default function CandidateHome() {
 

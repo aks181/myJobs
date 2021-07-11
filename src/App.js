@@ -3,10 +3,10 @@ import './_App.scss';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Landing from './components/home/Landing';
-import Signin from './components/Signin';
-import Signup from './components/Signup';
-import ForgotPassword from './components/ForgotPassword';
-import ResetPassword from './components/ResetPassword';
+import Signin from './components/auth/Signin';
+import Signup from './components/auth/Signup';
+import ForgotPassword from './components/auth/ForgotPassword';
+import ResetPassword from './components/auth/ResetPassword';
 import PostJob from './components/recruiter/PostJob';
 import RecruiterHome from './components/recruiter/RecruiterHome';
 import CandidateHome from './components/candidate/CandidateHome';

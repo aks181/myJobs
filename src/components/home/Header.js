@@ -2,7 +2,7 @@ import React from 'react';
 import './_header.scss';
 import MainButton from './MainButton';
 import { Link } from 'react-router-dom';
-import TopNav from './home/TopNav';
+import TopNav from './TopNav';
 
 const Header = () => {
     return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
-import TopNav from './home/TopNav';
-import MainButton from './MainButton';
+import TopNav from '../home/TopNav';
+import MainButton from '../home/MainButton';
 import './_signup.scss';
 
 const validate = values => {

@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import React from 'react'
-import '../_signup.scss'
+import '../auth/_signup.scss'
 
 
 const validate = (values) => {
